@@ -13,10 +13,13 @@ io.on('connection', function(socket){
 
 	socket.on('chat message', function(msg){
 		console.log('message: ' + msg);
+		io.emit('chat message', msg);
 	});
 
 	socket.on('disconnect', function(){
 		console.log('user disconnected');
+		// var msg = 'A user disconnected';
+		// io.emit('chat message', msg);
 	});
 });
 
